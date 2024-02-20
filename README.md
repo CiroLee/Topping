@@ -1,4 +1,7 @@
-# Topping
+<div align="center">
+  <img src="./assets/Topping.png" style="width: 240px" alt="banner" />
+  <h1>Topping</h1>
+</div>
 
 基于[wails](https://wails.io/)开发的桌面应用程序，用于悬浮指定图片，支持本地拖拽图片、复制粘贴(本地或网络)图片等方式悬浮置顶图片。
 
