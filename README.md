@@ -12,7 +12,7 @@
 
 ![image](./assets/topping-2.png)
 
-![image](./assets/ani.gif)
+<video src="./assets/video.mp4" />
 
 支持本地拖拽/选择图片、复制粘贴(本地或网络)图片方式悬浮图片置顶层。
 支持键盘回退键(Backspace)和删除键(Delete)删除置顶图片。
