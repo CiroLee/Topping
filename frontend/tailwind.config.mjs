@@ -1,9 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 import plugin from 'tailwindcss/plugin';
+import theme from './plugins/theme';
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {}
+    extend: {
+      ...theme
+    }
   },
   plugins: [
     plugin(function ({ addUtilities }) {

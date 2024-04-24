@@ -1,8 +1,33 @@
 import { useState, useEffect } from 'react';
 import { Plus } from 'lucide-react';
 import clsx from 'clsx';
+import Segment from '../Segment';
+
+const objectFitOptions = [
+  {
+    label: 'cover',
+    value: 'cover'
+  },
+  {
+    label: 'contain',
+    value: 'contain'
+  },
+  {
+    label: 'fill',
+    value: 'fill'
+  },
+  {
+    label: 'none',
+    value: 'none'
+  },
+  {
+    label: 'scale-down',
+    value: 'scale-down'
+  }
+];
 export default function ImageContainer() {
   const [base64, setBase64] = useState<string>('');
+  const [objectFit, setObjectFit] = useState('contain');
 
   const readAsImage = (file: File) => {
     const reader = new FileReader();
@@ -70,10 +95,13 @@ export default function ImageContainer() {
   }, []);
   return (
     <div className="h-full flex flex-center box-border relative">
-      <div
-        className="w-screen h-screen bg-[100%_auto] bg-no-repeat pointer-events-none"
-        style={{ backgroundImage: `url(${base64})` }}
-      />
+      {base64 && (
+        <img
+          className="w-screen h-screen bg-[100%_auto] bg-no-repeat pointer-events-none"
+          src={base64}
+          style={{ objectFit: objectFit as any }}
+        />
+      )}
       <label
         className={clsx(
           'w-[80%] max-h-[480px] transition-all duration-200 aspect-[4/3] overflow-hidden absolute-center border-2 border-blue-500 rounded-lg border-dashed flex flex-center',
@@ -94,6 +122,11 @@ export default function ImageContainer() {
           onChange={handleFileChange}
         />
       </label>
+      <Segment
+        className="absolute right-4 bottom-4 transition-all opacity-30 hover:opacity-100 duration-300"
+        options={objectFitOptions}
+        onSegmentChange={setObjectFit}
+      />
     </div>
   );
 }
