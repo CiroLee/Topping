@@ -123,6 +123,7 @@ export default function ImageContainer() {
         />
       </label>
       <Segment
+        defaultValue={objectFit}
         className="absolute right-4 bottom-4 transition-all opacity-30 hover:opacity-100 duration-300"
         options={objectFitOptions}
         onSegmentChange={setObjectFit}
